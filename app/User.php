@@ -1,0 +1,57 @@
+<?php
+
+namespace App;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'lname', 'fname', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function users(){
+        return $this->hasMany('App\Learner');
+    }
+
+    public function instructors(){
+        return $this->hasMany('App\Instructor');
+    }
+
+    public static function list(){
+        $user = User::orderByRaw('lname', 'fname')->get();
+        $list = [];
+        foreach($user as $u){
+            $list[$u->id] = $u->lname . ',' . $u->fname;
+
+        }
+        return $list;
+    }
+}

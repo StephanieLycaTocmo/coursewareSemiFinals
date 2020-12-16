@@ -20,11 +20,11 @@ class Instructor extends Model
     }
 
     public static function list(){
-        $instructor = Instructor::orderByRaw('user_id')->get();
+        $instructors = Instructor::get();
         $list = [];
-        foreach($instructor as $i){
-            $list[$i->id];
-
+        
+        foreach($instructors as $i){
+            $list[$i->id] = $i->user->lname . ", " . $i->user->fname;
         }
         return $list;
     }

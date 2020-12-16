@@ -40,7 +40,7 @@
             <td>{{$user->lname}}</td>
             <td>{{$user->fname}}</td>
             <td>{{$user->email}}</td>
-            <td>
+            <td class="text-center">
                 <a href="{{url('/users/edit', ['id'=>$user])}}" class="btn btn-secondary btn-sm">Edit</a>
             </td>
         </tr>

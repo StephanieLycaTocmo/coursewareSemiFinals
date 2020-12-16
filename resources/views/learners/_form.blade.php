@@ -5,17 +5,25 @@
                     
 </div>
 <div class="form-group">
-
-{{Form::label('Level')}}
-{{Form::text('level', null, ['class'=>'form-control'])}}
-
+    {{Form::label('level', 'Level')}}
+    {{Form::select('level', 
+    [
+        'novice'        => 'Novice',
+        'intermediate'  => 'Intermediate',
+        'advanced'      => 'Advanced'
+    ], 
+    null, ['class'=>'form-control', "placeholder"=>'Select Level'])}}
 </div>
 
 <div class="form-group">
-
-{{Form::label('status')}}
-{{Form::text('status', null, ['class'=>'form-control'])}}
-
+    {{Form::label('status', 'Status')}}
+    {{Form::select('status', 
+    [
+        'active'    => 'Active',
+        'inactive'  => 'Inactive',
+        'suspended' => 'Suspended',
+    ], 
+    null, ['class'=>'form-control', "placeholder"=>'Select Status'])}}
 </div>
 
 

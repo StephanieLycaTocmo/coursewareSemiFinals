@@ -43,7 +43,7 @@
             <td>{{$learner->fname}}</td>
             <td>{{$learner->level}}</td>
             <td>{{$learner->status}}</td>
-            <td>
+            <td class="text-center">
                 <a href="{{url('/learners/edit', ['id'=>$learner])}}" class="btn btn-secondary btn-sm">Edit</a>
             </td>
         </tr>

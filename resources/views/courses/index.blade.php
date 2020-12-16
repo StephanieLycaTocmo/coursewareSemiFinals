@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('info')
+
 <style>
 
     th {
@@ -15,33 +17,35 @@
     
 </style>
 
-<h1>Courses</h1>
-<table class="table table-bordered table-striped table-sm">
-    <thead>
-        <tr>
-            <th>ID Number</th>
+    <div class="float-right">
+    <a href="{{url('courses/create')}}" class="btn btn-success">Add Course</a>
+    </div>
+    
+    <h1>Courses</h1>
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
             <th>Name</th>
             <th>Description</th>
             <th>Start</th>
             <th>End</th>
             <th>Instructor</th>
-        </tr>
-    </thead>
+            <th>&nbsp;</th>
+        </thead>
+        <tbody>
+            @foreach($courses as $course)
 
-    <tbody>
-        @foreach($courses as $course)
+            <tr>
+                <td>{{$course->name}}</td>
+                <td>{{$course->description}}</td>
+                <td>{{$course->start}}</td>
+                <td>{{$course->end}}</td>
+                <td>{{$course->instructor->user->lname}}</td>
+                <td class="text-center">
+                    <a href="{{url('/courses/edit', ['id'=>$course])}}" class="btn btn-secondary btn-sm">Edit</a>
+                </td>
+            </tr>
 
-        <tr>
-            <td>{{$course->id}}</td>
-            <td>{{$course->name}}</td>
-            <td>{{$course->description}}</td>
-            <td>{{$course->start}}</td>
-            <td>{{$course->end}}</td>
-            <td>{{$course->instructors}}</td>
-        </tr>
-
-        @endforeach
-    </tbody>
-</table>
-
-@stop
+            @endforeach
+        </tbody>
+    </table>
+@endsection

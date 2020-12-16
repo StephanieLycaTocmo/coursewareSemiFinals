@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courseware</title>
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </head>
 <body>
-
+    
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container">
         <a class="navbar-brand" href="{{'/'}}">Courseware</a>

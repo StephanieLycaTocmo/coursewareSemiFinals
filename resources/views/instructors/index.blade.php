@@ -41,7 +41,7 @@
             <td>{{$instructor->fname}}</td>
             <td>{{$instructor->aoe}}</td>
             <td>{{$instructor->rating}}</td>
-            <td>
+            <td class="text-center">
                 <a href="{{url('/instructors/edit', ['id'=>$instructor])}}" class="btn btn-secondary btn-sm">Edit</a>
             </td>
         </tr>
